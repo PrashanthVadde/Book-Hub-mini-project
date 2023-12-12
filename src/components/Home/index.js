@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Slider from 'react-slick'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
+import {Link} from 'react-router-dom'
 
 import './index.css'
 
@@ -42,7 +43,7 @@ class Home extends Component {
     const response = await fetch(apiUrl, options)
     if (response.ok === true) {
       const fetchedData = await response.json()
-      console.log('Data logged successfully', fetchedData)
+
       const updatedData = fetchedData.books.map(eachBook => ({
         id: eachBook.id,
         title: eachBook.title,
@@ -50,7 +51,6 @@ class Home extends Component {
         coverPic: eachBook.cover_pic,
       }))
 
-      console.log('updated', updatedData)
       this.setState({
         apiStatus: apiStatusConstants.success,
         booksData: updatedData,
@@ -148,9 +148,11 @@ class Home extends Component {
           <div className="top-rated-books">
             <div className="top-part">
               <h1 className="top-rated-text">Top Rated Books</h1>
-              <button type="button" className="find-books-btn">
-                Find Books
-              </button>
+              <Link to="/shelf" styles={{textDecoration: 'none'}}>
+                <button type="button" className="find-books-btn">
+                  Find Books
+                </button>
+              </Link>
             </div>
 
             {this.renderResults()}
