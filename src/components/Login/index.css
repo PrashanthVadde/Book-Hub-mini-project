@@ -1,0 +1,123 @@
+.login-page {
+  display: inline-flex;
+  height: 100vh;
+  width: 100%;
+  padding-right: 89px;
+  align-items: center;
+  gap: 72px;
+  background: #f8fafc;
+}
+
+.website-login-img {
+  width: 700px;
+  height: 100%;
+}
+
+.form-container {
+  width: 499px;
+  height: 484px;
+  flex-shrink: 0;
+  background: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.logo-container {
+  width: 141px;
+  height: 47.999px;
+  flex-shrink: 0;
+}
+
+.website-logo {
+  width: 55px;
+  height: 47.999px;
+  flex-shrink: 0;
+}
+
+.logo-name {
+  display: flex;
+  width: 87px;
+  height: 17px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+
+  color: #0284c7;
+  text-align: center;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Almendra SC;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 100% */
+}
+
+.input-container {
+  display: flex;
+  width: 360px;
+  padding-top: 3px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.username {
+  color: #5a7184;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.input-styles {
+  width: 360px;
+  height: 56px;
+  flex-shrink: 0;
+
+  border-radius: 8px;
+  border: 1px solid #c3cad9;
+  background: transparent;
+  padding-left: 12px;
+
+  color: #183b56;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+
+.login-btn {
+  width: 360px;
+  height: 56px;
+  flex-shrink: 0;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  border-radius: 8px;
+  background: #0284c7;
+
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 20px;
+}
+
+.error-msg {
+  color: var(--light-red-500, #ef4444);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
