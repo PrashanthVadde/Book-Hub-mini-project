@@ -1,7 +1,35 @@
 .side-bar {
   background: #fff;
-  width: 240px;
+  width: 25%;
   height: 80%;
-  padding-left: 0;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.side-bar-title {
+  color: var(--light-blue-gray-700, #334155);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 160% */
+}
+
+.side-bar-options {
   list-style-type: none;
+  padding-left: 0;
+}
+
+.option-btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--light-blue-gray-600, #475569);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
 }

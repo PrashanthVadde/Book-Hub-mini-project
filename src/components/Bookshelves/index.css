@@ -1,8 +1,129 @@
 .bookshelves-page {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-background: #F5F7FA;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f7fa;
 }
 
+.bottom-part {
+  height: 100%;
+  width: 100%;
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.bottom-right-part {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 100%;
+}
+
+.title-search {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.books-category {
+  color: var(--light-blue-gray-700, #334155);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.search-container {
+  display: inline-flex;
+  height: 36px;
+  flex-direction: row;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.search-input {
+  display: flex;
+  padding: 6px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  border-radius: 4px;
+  border: 1px solid var(--light-blue-gray-300, #cbd5e1);
+  background: #fff;
+}
+
+.search-icon-container {
+  width: 52px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 0px 3px 3px 0px;
+  background: #94a3b8;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.loader-container {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.failure-view {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.failure-img {
+  height: 320px;
+  width: 450px;
+}
+
+.failure-description {
+  color: var(--light-blue-gray-600, #475569);
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 48px; /* 200% */
+}
+
+.try-again-btn {
+  display: flex;
+  padding: 12px 24px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  background: #0284c7;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--light-base-white, #fff);
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}

@@ -44,7 +44,7 @@ class App extends Component {
           <ProtectedRoute
             exact
             path="/shelf"
-            component={<Bookshelves bookshelvesList={bookshelvesList} />}
+            component={() => <Bookshelves bookshelvesList={bookshelvesList} />}
           />
         </Switch>
       </BrowserRouter>

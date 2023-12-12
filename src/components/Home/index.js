@@ -148,7 +148,7 @@ class Home extends Component {
           <div className="top-rated-books">
             <div className="top-part">
               <h1 className="top-rated-text">Top Rated Books</h1>
-              <Link to="/shelf" styles={{textDecoration: 'none'}}>
+              <Link to="/shelf" style={{textDecoration: 'none'}}>
                 <button type="button" className="find-books-btn">
                   Find Books
                 </button>
