@@ -112,7 +112,7 @@
 
 .slick-prev:before,
 .slick-next:before {
-  color: black;
+  color: #4477ce;
 }
 
 .loader-container {
@@ -318,7 +318,8 @@
 
   .slick-prev:before,
   .slick-next:before {
-    color: black;
+    font-size: 26px;
+    color: #4477ce;
   }
 
   .loader-container {
@@ -521,7 +522,8 @@
 
   .slick-prev:before,
   .slick-next:before {
-    color: black;
+    font-size: 26px;
+    color: #4477ce;
   }
 
   .loader-container {
@@ -726,7 +728,8 @@
 
   .slick-prev:before,
   .slick-next:before {
-    color: black;
+    font-size: 26px;
+    color: #4477ce;
   }
 
   .loader-container {

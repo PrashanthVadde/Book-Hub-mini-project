@@ -6,9 +6,6 @@ import {Link} from 'react-router-dom'
 
 import './index.css'
 
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-
 import Header from '../Header'
 import ThemeContext from '../../Context/ThemeContext'
 import Footer from '../Footer'
@@ -73,7 +70,7 @@ class Home extends Component {
 
     const settings = {
       dots: false,
-      infinite: true,
+      infinite: false,
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 1,
@@ -83,15 +80,15 @@ class Home extends Component {
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 34,
-            slidesToScroll: 1,
+            slidesToShow: 4,
+            slidesToScroll: 3,
           },
         },
         {
           breakpoint: 768,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 1,
+            slidesToScroll: 3,
           },
         },
         {
