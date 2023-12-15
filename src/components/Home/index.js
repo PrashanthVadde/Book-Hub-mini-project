@@ -6,10 +6,12 @@ import {Link} from 'react-router-dom'
 
 import './index.css'
 
-// import '~slick-carousel/slick/slick.css'
-// import '~slick-carousel/slick/slick-theme.css'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 import Header from '../Header'
+import ThemeContext from '../../Context/ThemeContext'
+import Footer from '../Footer'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -66,24 +68,27 @@ class Home extends Component {
     </div>
   )
 
-  renderBooks = () => {
+  renderBooks = (onUpdateActiveTab, isDarkMode) => {
     const {booksData} = this.state
+
     const settings = {
       dots: false,
-      infinite: false,
+      infinite: true,
       speed: 500,
-      slidesToShow: 3,
+      slidesToShow: 4,
       slidesToScroll: 1,
+      accessibility: true,
+
       responsive: [
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 4,
+            slidesToShow: 34,
             slidesToScroll: 1,
           },
         },
         {
-          breakpoint: 600,
+          breakpoint: 768,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 1,
@@ -99,16 +104,40 @@ class Home extends Component {
       ],
     }
 
+    const onClickBookItem = () => {
+      onUpdateActiveTab('')
+    }
+
     return (
       <div className="slick-container">
         <Slider {...settings}>
           {booksData.map(eachBook => {
             const {id, coverPic, title, authorName} = eachBook
             return (
-              <div key={id} className="book-details">
-                <img src={coverPic} alt={title} className="cover-pic" />
-                <h1 className="book-title">{title}</h1>
-                <p className="author-name">{authorName}</p>
+              <div key={id} className="slider-book-details">
+                <Link
+                  to={`/books/${id}`}
+                  style={{textDecoration: 'none'}}
+                  onClick={onClickBookItem}
+                >
+                  <img
+                    src={coverPic}
+                    alt={title}
+                    className="home-page-cover-pic"
+                  />
+                  <h1
+                    className="home-page-book-title"
+                    style={{color: isDarkMode ? '#DDE6ED' : '#334155'}}
+                  >
+                    {title}
+                  </h1>
+                  <p
+                    className="home-page-author-name"
+                    style={{color: isDarkMode ? '#9DB2BF' : '#475569'}}
+                  >
+                    {authorName}
+                  </p>
+                </Link>
               </div>
             )
           })}
@@ -117,18 +146,43 @@ class Home extends Component {
     )
   }
 
-  renderFailureView = () => <h1>Failed</h1>
+  onClickTryAgainBtn = () => {
+    this.getTopRatedBooks()
+  }
 
-  renderResults = () => {
+  renderFailureView = isDarkMode => (
+    <div className="failure-view">
+      <img
+        src="https://www.cloudways.com/blog/wp-content/uploads/wordpress-404-error.jpg"
+        alt="failure view"
+        className="failure-img"
+      />
+      <p
+        className="failure-description"
+        style={{color: isDarkMode ? '#DDE6ED' : '#1e293b'}}
+      >
+        Something went wrong, Please try again.
+      </p>
+      <button
+        type="button"
+        className="try-again-btn"
+        onClick={this.onClickTryAgainBtn}
+      >
+        Try Again
+      </button>
+    </div>
+  )
+
+  renderResults = (onUpdateActiveTab, isDarkMode) => {
     const {apiStatus} = this.state
 
     switch (apiStatus) {
       case 'IN_PROGRESS':
         return this.renderLoadingView()
       case 'SUCCESS':
-        return this.renderBooks()
+        return this.renderBooks(onUpdateActiveTab, isDarkMode)
       case 'FAILURE':
-        return this.renderFailureView()
+        return this.renderFailureView(isDarkMode)
       default:
         return null
     }
@@ -136,29 +190,78 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="home-page">
-        <Header />
-        <div className="home-content">
-          <h1 className="home-page-heading">Find Your Next Favorite Books?</h1>
-          <p className="description">
-            You are in the right place. Tell us what titles or genres you have
-            enjoyed in the past, and we will give you surprisingly insightful
-            recommendations.
-          </p>
-          <div className="top-rated-books">
-            <div className="top-part">
-              <h1 className="top-rated-text">Top Rated Books</h1>
-              <Link to="/shelf" style={{textDecoration: 'none'}}>
-                <button type="button" className="find-books-btn">
-                  Find Books
-                </button>
-              </Link>
-            </div>
+      <ThemeContext.Consumer>
+        {value => {
+          const {onUpdateActiveTab, isDarkMode} = value
 
-            {this.renderResults()}
-          </div>
-        </div>
-      </div>
+          const onClickFindBooksBtn = () => {
+            onUpdateActiveTab('bookshelves')
+          }
+
+          return (
+            <div
+              className="home-page"
+              style={{backgroundColor: isDarkMode ? '#0F0F0F' : '#f5f7fa'}}
+            >
+              <Header />
+              <div className="home-content">
+                <h1
+                  className="home-page-heading"
+                  style={{color: isDarkMode ? '#DDE6ED' : '#1e293b'}}
+                >
+                  Find Your Next Favorite Books?
+                </h1>
+                <p
+                  className="home-page-description"
+                  style={{color: isDarkMode ? '#9DB2BF' : '#475569'}}
+                >
+                  You are in the right place. Tell us what titles or genres you
+                  have enjoyed in the past, and we will give you surprisingly
+                  insightful recommendations.
+                </p>
+                <Link
+                  to="/shelf"
+                  style={{textDecoration: 'none'}}
+                  onClick={onClickFindBooksBtn}
+                >
+                  <button type="button" className="medium-find-books-btn">
+                    Find Books
+                  </button>
+                </Link>
+
+                <div className="top-rated-books-and-footer">
+                  <div
+                    className="top-rated-books"
+                    style={{backgroundColor: isDarkMode ? '#191919' : '#fff'}}
+                  >
+                    <div className="top-rated-books-top-part">
+                      <h1
+                        className="top-rated-text"
+                        style={{color: isDarkMode ? '#DDE6ED' : '#1e293b'}}
+                      >
+                        Top Rated Books
+                      </h1>
+                      <Link
+                        to="/shelf"
+                        style={{textDecoration: 'none'}}
+                        onClick={onClickFindBooksBtn}
+                      >
+                        <button type="button" className="find-books-btn">
+                          Find Books
+                        </button>
+                      </Link>
+                    </div>
+
+                    {this.renderResults(onUpdateActiveTab, isDarkMode)}
+                  </div>
+
+                  <Footer />
+                </div>
+              </div>
+            </div>
+          )
+        }}
+      </ThemeContext.Consumer>
     )
   }
 }

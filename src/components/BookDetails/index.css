@@ -1,0 +1,411 @@
+.book-details-page {
+  max-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f7fa;
+}
+
+.book-details-bottom-part {
+  display: flex;
+  height: 92vh;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  /* height: 90vh; */
+}
+
+.book-content {
+  width: 90%;
+  border-radius: 16px;
+  background: #fff;
+
+  /* Light / Shadow / base */
+  box-shadow: 0px 1px 2px 0px rgba(96, 97, 112, 0.16),
+    0px 0px 1px 0px rgba(40, 41, 61, 0.08);
+
+  padding: 16px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  /* overflow-y: auto; */
+}
+
+.book-details-top-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 380px;
+}
+
+.book-details-cover-pic {
+  width: 140px;
+  height: 190px;
+  border-radius: 4px;
+}
+
+.top-part-text {
+  text-align: center;
+}
+
+.book-title {
+  color: var(--light-blue-gray-700, #334155);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 150% */
+}
+
+.book-author {
+  color: var(--light-blue-gray-600, #475569);
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 10px; /* 133.333% */
+}
+
+.rating-styles {
+  color: var(--light-blue-gray-600, #475569);
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 133.333% */
+}
+
+.rating-num {
+  color: var(--light-blue-gray-700, #334155);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 133.333% */
+  margin-left: 12px;
+}
+
+.status {
+  color: var(--light-blue-gray-600, #475569);
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 133.333% */
+}
+
+.read-status {
+  color: #0284c7;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 133.333% */
+}
+
+.line-styles {
+  width: 100%;
+  height: 1px;
+  background: #94a3b8;
+}
+
+.about-author {
+  color: var(--light-blue-gray-700, #334155);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 133.333% */
+}
+
+.about-author-description {
+  color: var(--light-blue-gray-600, #475569);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: 'Roboto';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 175% */
+}
+
+.about-book {
+  color: var(--light-blue-gray-700, #334155);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.about-book-description {
+  color: var(--light-blue-gray-600, #475569);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: 'Roboto';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.loader-container {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.failure-view {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.failure-img {
+  height: 220px;
+  width: 340px;
+}
+
+.failure-description {
+  color: var(--light-blue-gray-600, #475569);
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 48px; /* 200% */
+}
+
+.try-again-btn {
+  display: flex;
+  padding: 10px 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  background: #0284c7;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--light-base-white, #fff);
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 171.429% */
+}
+
+@media screen and (min-width: 768px) {
+  .book-details-page {
+    max-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f5f7fa;
+  }
+
+  .book-details-bottom-part {
+    display: flex;
+    height: 92vh;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding-bottom: 20px;
+    /* height: 90vh; */
+  }
+
+  .book-content {
+    width: 70%;
+    border-radius: 16px;
+    background: #fff;
+
+    /* Light / Shadow / base */
+    box-shadow: 0px 1px 2px 0px rgba(96, 97, 112, 0.16),
+      0px 0px 1px 0px rgba(40, 41, 61, 0.08);
+
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* overflow-y: auto; */
+  }
+
+  .book-details-top-part {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+  }
+
+  .book-details-cover-pic {
+    width: 200px;
+    height: 280px;
+    flex-shrink: 0;
+    border-radius: 4px;
+  }
+
+  .top-part-text {
+    margin-left: 20px;
+    text-align: left;
+  }
+
+  .book-title {
+    color: var(--light-blue-gray-700, #334155);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: 'Roboto';
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 48px; /* 150% */
+  }
+
+  .book-author {
+    color: var(--light-blue-gray-600, #475569);
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px; /* 133.333% */
+  }
+
+  .rating-styles {
+    color: var(--light-blue-gray-600, #475569);
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px; /* 133.333% */
+  }
+
+  .rating-num {
+    color: var(--light-blue-gray-700, #334155);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 133.333% */
+    margin-left: 12px;
+  }
+
+  .status {
+    color: var(--light-blue-gray-600, #475569);
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px; /* 133.333% */
+  }
+
+  .read-status {
+    color: #0284c7;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px; /* 133.333% */
+  }
+
+  .line-styles {
+    width: 100%;
+    height: 1px;
+    background: #94a3b8;
+  }
+
+  .about-author {
+    color: var(--light-blue-gray-700, #334155);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px; /* 133.333% */
+  }
+
+  .about-author-description {
+    color: var(--light-blue-gray-600, #475569);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: 'Roboto';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 175% */
+  }
+
+  .about-book {
+    color: var(--light-blue-gray-700, #334155);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+  }
+
+  .about-book-description {
+    color: var(--light-blue-gray-600, #475569);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: 'Roboto';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+  }
+
+  .loader-container {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .failure-view {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .failure-img {
+    height: 220px;
+    width: 350px;
+  }
+
+  .failure-description {
+    color: var(--light-blue-gray-600, #475569);
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px; /* 200% */
+  }
+
+  .try-again-btn {
+    display: flex;
+    padding: 10px 22px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+    background: #0284c7;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--light-base-white, #fff);
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 171.429% */
+  }
+}

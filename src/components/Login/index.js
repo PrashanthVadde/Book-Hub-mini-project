@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 
 import './index.css'
+import ThemeContext from '../../Context/ThemeContext'
 
 class Login extends Component {
   state = {
@@ -19,12 +20,16 @@ class Login extends Component {
     this.setState({password: event.target.value})
   }
 
-  renderUsernameField = () => {
+  renderUsernameField = isDarkMode => {
     const {username} = this.state
 
     return (
       <div className="input-container">
-        <label className="username" htmlFor="userName">
+        <label
+          className={`username-light ${isDarkMode ? 'username-dark' : ''}`}
+          htmlFor="userName"
+          //   style={{color: isDarkMode ? '#CBE4DE' : '#5a7184'}}
+        >
           Username*
         </label>
         <input
@@ -32,17 +37,22 @@ class Login extends Component {
           id="userName"
           value={username}
           onChange={this.onChangeUsername}
+          style={{color: isDarkMode ? '#CBE4DE' : '#5a7184'}}
         />
       </div>
     )
   }
 
-  renderPasswordField = () => {
+  renderPasswordField = isDarkMode => {
     const {password} = this.state
 
     return (
       <div className="input-container">
-        <label className="username" htmlFor="password">
+        <label
+          className={`username-light ${isDarkMode ? 'username-dark' : ''}`}
+          htmlFor="password"
+          style={{color: isDarkMode ? '#CBE4DE' : '#5a7184'}}
+        >
           Password*
         </label>
         <input
@@ -51,6 +61,7 @@ class Login extends Component {
           id="password"
           value={password}
           onChange={this.onChangePassword}
+          style={{color: isDarkMode ? '#CBE4DE' : '#5a7184'}}
         />
       </div>
     )
@@ -88,31 +99,53 @@ class Login extends Component {
 
   render() {
     const {showingError, errMsg} = this.state
-    return (
-      <div className="login-page">
-        <img
-          src="https://res.cloudinary.com/dazvrkjxg/image/upload/v1702279962/b60dhv585bj2cswowvs6.jpg"
-          alt="website login"
-          className="website-login-img"
-        />
-        <form className="form-container" onSubmit={this.onSubmitForm}>
-          <div className="logo-container">
-            <img
-              src="https://res.cloudinary.com/dazvrkjxg/image/upload/v1702280573/Book%20Hub/rllezn07l030tqakbjjl.svg"
-              alt="login website logo"
-              className="website-logo"
-            />
-            <span className="logo-name">ook Hub</span>
-          </div>
 
-          {this.renderUsernameField()}
-          {this.renderPasswordField()}
-          <button type="submit" className="login-btn">
-            Login
-          </button>
-          {showingError && <p className="error-msg">{errMsg}</p>}
-        </form>
-      </div>
+    return (
+      <ThemeContext.Consumer>
+        {value => {
+          const {isDarkMode} = value
+
+          console.log('Dark mode STatus:--', isDarkMode)
+
+          return (
+            <div
+              //   className={isDarkMode ? 'login-page-dark' : 'login-page-light'}
+              className={`login-page-light ${
+                isDarkMode ? 'login-page-dark' : ''
+              }`}
+            >
+              <img
+                src="https://res.cloudinary.com/dazvrkjxg/image/upload/v1702279962/b60dhv585bj2cswowvs6.jpg"
+                alt="website login"
+                className="website-login-img"
+              />
+              <form
+                className={`form-container-light ${
+                  isDarkMode ? 'form-container-dark' : ''
+                }`}
+                onSubmit={this.onSubmitForm}
+                // style={{background: isDarkMode ? '#040D12' : '#f8fafc'}}
+              >
+                <div className="logo-container">
+                  <img
+                    src="https://res.cloudinary.com/dazvrkjxg/image/upload/v1702280573/Book%20Hub/rllezn07l030tqakbjjl.svg"
+                    alt="login website logo"
+                    className="website-logo"
+                  />
+                  <span className="logo-name">ook Hub</span>
+                </div>
+
+                {this.renderUsernameField(isDarkMode)}
+                {this.renderPasswordField(isDarkMode)}
+                {showingError && <p className="error-msg">{errMsg}</p>}
+                <button type="submit" className="login-btn">
+                  Login
+                </button>
+              </form>
+            </div>
+          )
+        }}
+      </ThemeContext.Consumer>
     )
   }
 }

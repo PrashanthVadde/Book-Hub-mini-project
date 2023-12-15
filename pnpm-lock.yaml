@@ -30,6 +30,7 @@ specifiers:
   react-select: 4.3.1
   react-select-event: 5.3.0
   react-slick: 0.28.1
+  reactjs-popup: 2.0.6
   slick-carousel: 1.8.1
 
 dependencies:
@@ -52,6 +53,7 @@ dependencies:
   react-select: 4.3.1_react-dom@17.0.1+react@17.0.1
   react-select-event: 5.3.0
   react-slick: 0.28.1_react-dom@17.0.1+react@17.0.1
+  reactjs-popup: 2.0.6_react-dom@17.0.1+react@17.0.1
   slick-carousel: 1.8.1
 
 devDependencies:
@@ -10574,6 +10576,17 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
+    dev: false
+
+  /reactjs-popup/2.0.6_react-dom@17.0.1+react@17.0.1:
+    resolution: {integrity: sha512-A+tt+x9wdgZiZjv0e2WzYLD3IfFwJALaRaqwrCSXGjo0iQdsry/EtBEbQXRSmQs7cHmOi5eytCiSlOm8k4C+dg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
     dev: false
 
   /read-pkg-up/3.0.0:

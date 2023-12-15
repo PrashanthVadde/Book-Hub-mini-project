@@ -6,8 +6,12 @@ import './App.css'
 import Login from './components/Login'
 import Home from './components/Home'
 import Bookshelves from './components/Bookshelves'
+import BookDetails from './components/BookDetails'
 
 import ProtectedRoute from './ProtectedRoute'
+import NotFound from './components/NotFound'
+
+import ThemeContext from './Context/ThemeContext'
 
 // use the below bookshelvesList for rendering read status of book items in Bookshelves Route
 
@@ -35,19 +39,47 @@ const bookshelvesList = [
 ]
 
 class App extends Component {
+  state = {
+    activeTab: 'home',
+    isDarkMode: true,
+  }
+
+  onUpdateActiveTab = tabValue => {
+    this.setState({activeTab: tabValue})
+  }
+
+  onToggleTheme = () => {
+    this.setState(prevState => ({isDarkMode: !prevState.isDarkMode}))
+  }
+
   render() {
+    const {isDarkMode, activeTab} = this.state
+    console.log('activeTab:- - - ', activeTab)
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <ProtectedRoute exact path="/" component={Home} />
-          <ProtectedRoute
-            exact
-            path="/shelf"
-            component={() => <Bookshelves bookshelvesList={bookshelvesList} />}
-          />
-        </Switch>
-      </BrowserRouter>
+      <ThemeContext.Provider
+        value={{
+          isDarkMode,
+          onToggleTheme: this.onToggleTheme,
+          activeTab,
+          onUpdateActiveTab: this.onUpdateActiveTab,
+        }}
+      >
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/login" component={Login} />
+            <ProtectedRoute exact path="/" component={Home} />
+            <ProtectedRoute
+              exact
+              path="/shelf"
+              component={() => (
+                <Bookshelves bookshelvesList={bookshelvesList} />
+              )}
+            />
+            <ProtectedRoute exact path="/books/:id" component={BookDetails} />
+            <Route component={NotFound} />
+          </Switch>
+        </BrowserRouter>
+      </ThemeContext.Provider>
     )
   }
 }
