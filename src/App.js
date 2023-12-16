@@ -8,10 +8,10 @@ import Home from './components/Home'
 import Bookshelves from './components/Bookshelves'
 import BookDetails from './components/BookDetails'
 
-import ProtectedRoute from './ProtectedRoute'
+import ProtectedRoute from './components/ProtectedRoute'
 import NotFound from './components/NotFound'
 
-import ThemeContext from './Context/ThemeContext'
+import ThemeContext from './components/Context/ThemeContext'
 
 // use the below bookshelvesList for rendering read status of book items in Bookshelves Route
 

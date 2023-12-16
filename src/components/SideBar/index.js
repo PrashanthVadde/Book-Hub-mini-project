@@ -1,5 +1,5 @@
 import './index.css'
-import ThemeContext from '../../Context/ThemeContext'
+import ThemeContext from '../Context/ThemeContext'
 
 const SideBar = props => {
   const {bookshelvesList, onClickTab, activeId} = props

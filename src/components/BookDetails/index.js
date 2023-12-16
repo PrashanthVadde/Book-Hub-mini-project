@@ -7,7 +7,7 @@ import './index.css'
 
 import Header from '../Header'
 import Footer from '../Footer'
-import ThemeContext from '../../Context/ThemeContext'
+import ThemeContext from '../Context/ThemeContext'
 
 const apiStatusConstants = {
   initial: 'INITIAL',

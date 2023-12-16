@@ -7,7 +7,9 @@ import {Link} from 'react-router-dom'
 import './index.css'
 
 import Header from '../Header'
-import ThemeContext from '../../Context/ThemeContext'
+
+import ThemeContext from '../Context/ThemeContext'
+
 import Footer from '../Footer'
 
 const apiStatusConstants = {

@@ -6,7 +6,7 @@ import {RiMenuFoldLine, RiMoonClearFill} from 'react-icons/ri'
 import {IoIosCloseCircle} from 'react-icons/io'
 import {IoSunny} from 'react-icons/io5'
 
-import ThemeContext from '../../Context/ThemeContext'
+import ThemeContext from '../Context/ThemeContext'
 
 const Header = props => {
   const onClickLogoutBtn = () => {

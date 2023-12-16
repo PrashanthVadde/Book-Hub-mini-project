@@ -10,7 +10,7 @@ import Header from '../Header'
 import SideBar from '../SideBar'
 import Footer from '../Footer'
 
-import ThemeContext from '../../Context/ThemeContext'
+import ThemeContext from '../Context/ThemeContext'
 
 const apiStatusConstants = {
   initial: 'INITIAL',

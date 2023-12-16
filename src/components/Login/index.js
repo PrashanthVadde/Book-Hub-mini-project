@@ -3,7 +3,7 @@ import {Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
 
 import './index.css'
-import ThemeContext from '../../Context/ThemeContext'
+import ThemeContext from '../Context/ThemeContext'
 
 class Login extends Component {
   state = {

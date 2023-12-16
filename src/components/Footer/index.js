@@ -1,7 +1,7 @@
 import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
 
 import './index.css'
-import ThemeContext from '../../Context/ThemeContext'
+import ThemeContext from '../Context/ThemeContext'
 
 const Footer = () => (
   <ThemeContext.Consumer>

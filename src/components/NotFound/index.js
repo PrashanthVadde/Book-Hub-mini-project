@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 
 import './index.css'
-import ThemeContext from '../../Context/ThemeContext'
+import ThemeContext from '../Context/ThemeContext'
 
 const NotFound = () => (
   <ThemeContext.Consumer>
