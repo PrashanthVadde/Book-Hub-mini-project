@@ -83,7 +83,7 @@ class Bookshelves extends Component {
         <div className="nothing-match-page">
           <img
             src="https://res.cloudinary.com/dxjnnbjcx/image/upload/v1702661865/jgmeo0bjivswnawg7qta.jpg"
-            alt="nothing match"
+            alt="no books"
             className="nothing-match-img"
           />
           <p
@@ -106,12 +106,13 @@ class Bookshelves extends Component {
           }
 
           return (
-            <li key={eachBook.id}>
-              <Link
-                to={`/books/${id}`}
-                style={{textDecoration: 'none'}}
-                onClick={onClickBook}
-              >
+            <Link
+              to={`/books/${id}`}
+              style={{textDecoration: 'none'}}
+              onClick={onClickBook}
+              key={eachBook.id}
+            >
+              <li key={eachBook.id}>
                 <div className="shelf-book">
                   <img src={coverPic} alt={title} className="shelf-book-img" />
                   <div className="shelf-book-text-part">
@@ -152,8 +153,8 @@ class Bookshelves extends Component {
                     </p>
                   </div>
                 </div>
-              </Link>
-            </li>
+              </li>
+            </Link>
           )
         })}
         <Footer />
@@ -297,6 +298,7 @@ class Bookshelves extends Component {
                         style={{
                           backgroundColor: isDarkMode ? '#0C134F' : '#cbd5e1',
                         }}
+                        testid="searchButton"
                       >
                         <BsSearch
                           className="search-icon"

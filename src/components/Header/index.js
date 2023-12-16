@@ -1,121 +1,119 @@
 import './index.css'
 import Cookies from 'js-cookie'
 import {Link, withRouter} from 'react-router-dom'
-import Popup from 'reactjs-popup'
-import {RiMenuFoldLine, RiMoonClearFill} from 'react-icons/ri'
-import {IoIosCloseCircle} from 'react-icons/io'
-import {IoSunny} from 'react-icons/io5'
+// import Popup from 'reactjs-popup'
+// import {RiMenuFoldLine, RiMoonClearFill} from 'react-icons/ri'
+// import {IoIosCloseCircle} from 'react-icons/io'
+// import {IoSunny} from 'react-icons/io5'
 
 import ThemeContext from '../Context/ThemeContext'
 
-const Header = props => {
-  const onClickLogoutBtn = () => {
-    Cookies.remove('jwt_token')
-    const {history} = props
-    history.replace('/login')
-  }
+const Header = props => (
+  <ThemeContext.Consumer>
+    {value => {
+      const {activeTab, onUpdateActiveTab, isDarkMode, onToggleTheme} = value
 
-  return (
-    <ThemeContext.Consumer>
-      {value => {
-        const {activeTab, onUpdateActiveTab, isDarkMode, onToggleTheme} = value
+      const onClickLogo = () => {
+        onUpdateActiveTab('home')
+      }
 
-        const onClickLogo = () => {
-          onUpdateActiveTab('home')
-        }
+      const onClickHomeTab = () => {
+        onUpdateActiveTab('home')
+      }
 
-        const onClickHomeTab = () => {
-          onUpdateActiveTab('home')
-        }
+      const onClickBookshelvesTab = () => {
+        onUpdateActiveTab('bookshelves')
+      }
 
-        const onClickBookshelvesTab = () => {
-          onUpdateActiveTab('bookshelves')
-        }
+      const onClickThemeBtn = () => {
+        onToggleTheme()
+      }
 
-        const onClickThemeBtn = () => {
-          onToggleTheme()
-        }
+      const themeBtnStyles = {
+        border: 'none',
+        outline: 'none',
+        cursor: 'pointer',
+        backgroundColor: 'transparent',
+      }
 
-        const themeBtnStyles = {
-          border: 'none',
-          outline: 'none',
-          cursor: 'pointer',
-          backgroundColor: 'transparent',
-        }
+      const onClickLogoutBtn = () => {
+        const {history} = props
+        history.replace('/login')
+        Cookies.remove('jwt_token')
+      }
 
-        const homeTabLightColor = activeTab === 'home' ? '#0284c7' : '#64748b'
-        const homeTabDarkColor = activeTab === 'home' ? '#0284c7' : '#e4e7eb'
-        const bookshelvesTabLightColor =
-          activeTab === 'bookshelves' ? '#0284c7' : '#64748b'
-        const bookshelvesTabDarkColor =
-          activeTab === 'bookshelves' ? '#0284c7' : '#e4e7eb'
+      const homeTabLightColor = activeTab === 'home' ? '#0284c7' : '#64748b'
+      const homeTabDarkColor = activeTab === 'home' ? '#0284c7' : '#e4e7eb'
+      const bookshelvesTabLightColor =
+        activeTab === 'bookshelves' ? '#0284c7' : '#64748b'
+      const bookshelvesTabDarkColor =
+        activeTab === 'bookshelves' ? '#0284c7' : '#e4e7eb'
 
-        return (
-          <div
-            className="header-container"
-            style={{
-              backgroundColor: isDarkMode ? '#18122B' : '#fff',
-              borderColor: isDarkMode ? '#040D12' : '',
-            }}
-          >
+      return (
+        <div
+          className="header-container"
+          style={{
+            backgroundColor: isDarkMode ? '#18122B' : '#fff',
+            borderColor: isDarkMode ? '#040D12' : '',
+          }}
+        >
+          <Link to="/" style={{textDecoration: 'none'}}>
+            <button
+              className="logo-container"
+              type="button"
+              onClick={onClickLogo}
+            >
+              <img
+                src="https://res.cloudinary.com/dazvrkjxg/image/upload/v1702280573/Book%20Hub/rllezn07l030tqakbjjl.svg"
+                alt="login website logo"
+                className="web-logo"
+              />
+              <span className="logo-text">ook Hub</span>
+            </button>
+          </Link>
+
+          <ul className="buttons-container">
             <Link to="/" style={{textDecoration: 'none'}}>
-              <button
-                className="logo-container"
-                type="button"
-                onClick={onClickLogo}
-              >
-                <img
-                  src="https://res.cloudinary.com/dazvrkjxg/image/upload/v1702280573/Book%20Hub/rllezn07l030tqakbjjl.svg"
-                  alt="login website logo"
-                  className="web-logo"
-                />
-                <span className="logo-text">ook Hub</span>
-              </button>
-            </Link>
-
-            <div className="buttons-container">
-              <Link to="/" style={{textDecoration: 'none'}}>
+              <li>
                 <button
                   type="button"
                   onClick={onClickHomeTab}
                   className="header-home"
+                  style={{
+                    color: isDarkMode ? homeTabDarkColor : homeTabLightColor,
+                  }}
                 >
-                  <h1
-                    style={{
-                      color: isDarkMode ? homeTabDarkColor : homeTabLightColor,
-                    }}
-                  >
-                    Home
-                  </h1>
+                  Home
                 </button>
-              </Link>
+              </li>
+            </Link>
 
-              <Link to="/shelf" style={{textDecoration: 'none'}}>
+            <Link to="/shelf" style={{textDecoration: 'none'}}>
+              <li>
                 <button
                   type="button"
                   onClick={onClickBookshelvesTab}
                   className="header-bookshelves"
+                  style={{
+                    color: isDarkMode
+                      ? bookshelvesTabDarkColor
+                      : bookshelvesTabLightColor,
+                  }}
                 >
-                  <h1
-                    style={{
-                      color: isDarkMode
-                        ? bookshelvesTabDarkColor
-                        : bookshelvesTabLightColor,
-                    }}
-                  >
-                    Bookshelves
-                  </h1>
+                  Bookshelves
                 </button>
-              </Link>
+              </li>
+            </Link>
 
-              <button
-                type="button"
-                onClick={onClickLogoutBtn}
-                className="logout-btn"
-              >
-                Logout
-              </button>
-              {isDarkMode ? (
+            <button
+              type="button"
+              onClick={onClickLogoutBtn}
+              className="logout-btn"
+            >
+              Logout
+            </button>
+
+            {/* {isDarkMode ? (
                 <button
                   type="button"
                   style={{...themeBtnStyles}}
@@ -133,10 +131,10 @@ const Header = props => {
                 >
                   <RiMoonClearFill size={30} style={{color: '#03001C'}} />
                 </button>
-              )}
-            </div>
+              )} */}
+          </ul>
 
-            <div className="popup-container">
+          {/* <div className="popup-container">
               {isDarkMode ? (
                 <button
                   type="button"
@@ -241,12 +239,11 @@ const Header = props => {
                   </div>
                 )}
               </Popup>
-            </div>
-          </div>
-        )
-      }}
-    </ThemeContext.Consumer>
-  )
-}
+            </div> */}
+        </div>
+      )
+    }}
+  </ThemeContext.Consumer>
+)
 
 export default withRouter(Header)

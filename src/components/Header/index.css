@@ -192,13 +192,15 @@
     justify-content: space-around;
     align-items: center;
     height: 100%;
+    padding-left: 0;
+    list-style-type: none;
   }
 
   .header-home {
     font-family: 'Roboto';
-    font-size: 10px;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 24px; /* 150% */
     border: none;
     background-color: transparent;
@@ -208,9 +210,9 @@
 
   .header-bookshelves {
     font-family: 'Roboto';
-    font-size: 10px;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 24px; /* 150% */
     border: none;
     background-color: transparent;
@@ -297,13 +299,15 @@
     justify-content: space-around;
     align-items: center;
     height: 100%;
+    padding-left: 0;
+    list-style-type: none;
   }
 
   .header-home {
     font-family: 'Roboto';
-    font-size: 10px;
+    font-size: 18px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 24px; /* 150% */
     border: none;
     background-color: transparent;
@@ -313,9 +317,9 @@
 
   .header-bookshelves {
     font-family: 'Roboto';
-    font-size: 10px;
+    font-size: 18px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 24px; /* 150% */
     border: none;
     background-color: transparent;

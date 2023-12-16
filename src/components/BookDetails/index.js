@@ -110,18 +110,20 @@ class BookDetails extends Component {
             </p>
             <p
               className="rating-styles"
-              style={{color: isDarkMode ? '#E5B8F4' : '#475569'}}
+              //   style={{color: isDarkMode ? '#E5B8F4' : '#475569'}} add
+              style={{color: isDarkMode ? '#DDE6ED' : '#1e293b'}}
             >
               Avg Rating{' '}
               <BsFillStarFill
                 style={{color: '#FBBF24', marginTop: 4, marginLeft: 4}}
               />
-              <span
+              {rating}
+              {/* <span
                 className="rating-num"
-                style={{color: isDarkMode ? '#DDE6ED' : '#1e293b'}}
+                // style={{color: isDarkMode ? '#DDE6ED' : '#1e293b'}} add
               >
                 {rating}
-              </span>
+              </span> */}
             </p>
             <p
               className="status"
