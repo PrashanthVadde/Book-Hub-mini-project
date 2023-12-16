@@ -41,7 +41,7 @@ const bookshelvesList = [
 class App extends Component {
   state = {
     activeTab: 'home',
-    isDarkMode: true,
+    isDarkMode: false,
   }
 
   onUpdateActiveTab = tabValue => {

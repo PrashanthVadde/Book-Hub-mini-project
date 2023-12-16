@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ThemeContext = React.createContext({
-  isDarkMode: true,
+  isDarkMode: false,
   onToggleTheme: () => {},
   activeTab: 'home',
   onUpdateActiveTab: () => {},

@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
-import {BsStarFill} from 'react-icons/bs'
+import {BsFillStarFill} from 'react-icons/bs'
 
 import './index.css'
 
@@ -113,7 +113,7 @@ class BookDetails extends Component {
               style={{color: isDarkMode ? '#E5B8F4' : '#475569'}}
             >
               Avg Rating{' '}
-              <BsStarFill
+              <BsFillStarFill
                 style={{color: '#FBBF24', marginTop: 4, marginLeft: 4}}
               />
               <span

@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {BsSearch, BsStarFill} from 'react-icons/bs'
+import {BsSearch, BsFillStarFill} from 'react-icons/bs'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import {Link} from 'react-router-dom'
@@ -132,7 +132,7 @@ class Bookshelves extends Component {
                       style={{color: isDarkMode ? '#E5B8F4' : '#475569'}}
                     >
                       Avg Rating
-                      <BsStarFill
+                      <BsFillStarFill
                         style={{
                           color: '#FBBF24',
                           marginLeft: 4,

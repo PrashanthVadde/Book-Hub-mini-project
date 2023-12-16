@@ -112,8 +112,6 @@ class Login extends Component {
         {value => {
           const {isDarkMode} = value
 
-          console.log('Dark mode STatus:--', isDarkMode)
-
           return (
             <div
               //   className={isDarkMode ? 'login-page-dark' : 'login-page-light'}
@@ -131,7 +129,6 @@ class Login extends Component {
                   isDarkMode ? 'form-container-dark' : ''
                 }`}
                 onSubmit={this.onSubmitForm}
-                // style={{background: isDarkMode ? '#040D12' : '#f8fafc'}}
               >
                 <div className="logo-container">
                   <img
