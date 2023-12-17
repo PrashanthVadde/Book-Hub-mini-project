@@ -46,7 +46,13 @@
 }
 
 .buttons-container {
-  display: none;
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  padding-left: 0;
+  list-style-type: none;
 }
 
 .menu-button {

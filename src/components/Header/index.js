@@ -105,14 +105,6 @@ const Header = props => (
               </li>
             </Link>
 
-            <button
-              type="button"
-              onClick={onClickLogoutBtn}
-              className="logout-btn"
-            >
-              Logout
-            </button>
-
             {/* {isDarkMode ? (
                 <button
                   type="button"
@@ -132,6 +124,13 @@ const Header = props => (
                   <RiMoonClearFill size={30} style={{color: '#03001C'}} />
                 </button>
               )} */}
+            <button
+              type="button"
+              onClick={onClickLogoutBtn}
+              className="logout-btn"
+            >
+              Logout
+            </button>
           </ul>
 
           {/* <div className="popup-container">

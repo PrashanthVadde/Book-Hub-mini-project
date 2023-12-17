@@ -115,7 +115,12 @@ class BookDetails extends Component {
             >
               Avg Rating{' '}
               <BsFillStarFill
-                style={{color: '#FBBF24', marginTop: 4, marginLeft: 4}}
+                style={{
+                  color: '#FBBF24',
+                  marginTop: 4,
+                  marginLeft: 4,
+                  marginRight: 4,
+                }}
               />
               {rating}
               {/* <span
