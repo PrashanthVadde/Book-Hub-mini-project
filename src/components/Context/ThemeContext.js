@@ -5,6 +5,8 @@ const ThemeContext = React.createContext({
   onToggleTheme: () => {},
   activeTab: 'home',
   onUpdateActiveTab: () => {},
+  favoriteBooks: [],
+  onUpdateFavoriteBooks: () => {},
 })
 
 export default ThemeContext

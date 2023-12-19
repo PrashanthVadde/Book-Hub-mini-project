@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 
 import './App.css'
 
@@ -7,6 +7,7 @@ import Login from './components/Login'
 import Home from './components/Home'
 import Bookshelves from './components/Bookshelves'
 import BookDetails from './components/BookDetails'
+import FavoriteBooks from './components/FavoriteBooks'
 
 import ProtectedRoute from './components/ProtectedRoute'
 import NotFound from './components/NotFound'
@@ -42,6 +43,7 @@ class App extends Component {
   state = {
     activeTab: 'home',
     isDarkMode: false,
+    favoriteBooks: [],
   }
 
   onUpdateActiveTab = tabValue => {
@@ -52,9 +54,30 @@ class App extends Component {
     this.setState(prevState => ({isDarkMode: !prevState.isDarkMode}))
   }
 
+  onUpdateFavoriteBooks = bookDetails => {
+    const {favoriteBooks} = this.state
+
+    const isItemAlreadyPresent = favoriteBooks.some(
+      eachBookDetails => eachBookDetails.id === bookDetails.id,
+    )
+
+    console.log('isItemAlreadyPresent', isItemAlreadyPresent)
+
+    if (isItemAlreadyPresent) {
+      const filteredFavoriteBooks = favoriteBooks.filter(
+        eachBook => eachBook.id !== bookDetails.id,
+      )
+      this.setState({favoriteBooks: filteredFavoriteBooks})
+    } else {
+      this.setState(prevState => ({
+        favoriteBooks: [...prevState.favoriteBooks, bookDetails],
+      }))
+    }
+  }
+
   render() {
-    const {isDarkMode, activeTab} = this.state
-    console.log('activeTab:- - - ', activeTab)
+    const {isDarkMode, activeTab, favoriteBooks} = this.state
+
     return (
       <ThemeContext.Provider
         value={{
@@ -62,23 +85,26 @@ class App extends Component {
           onToggleTheme: this.onToggleTheme,
           activeTab,
           onUpdateActiveTab: this.onUpdateActiveTab,
+          favoriteBooks,
+          onUpdateFavoriteBooks: this.onUpdateFavoriteBooks,
         }}
       >
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/login" component={Login} />
-            <ProtectedRoute exact path="/" component={Home} />
-            <ProtectedRoute
-              exact
-              path="/shelf"
-              component={() => (
-                <Bookshelves bookshelvesList={bookshelvesList} />
-              )}
-            />
-            <ProtectedRoute exact path="/books/:id" component={BookDetails} />
-            <Route component={NotFound} />
-          </Switch>
-        </BrowserRouter>
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute
+            exact
+            path="/shelf"
+            component={() => <Bookshelves bookshelvesList={bookshelvesList} />}
+          />
+          <ProtectedRoute exact path="/books/:id" component={BookDetails} />
+          <ProtectedRoute
+            exact
+            path="/favorite-books"
+            component={FavoriteBooks}
+          />
+          <Route component={NotFound} />
+        </Switch>
       </ThemeContext.Provider>
     )
   }

@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import {BsFillStarFill} from 'react-icons/bs'
+import {FaRegHeart, FaHeart} from 'react-icons/fa'
 
 import './index.css'
 
@@ -48,7 +49,6 @@ class BookDetails extends Component {
       const fetchedData = await response.json()
       const responseObj = fetchedData.book_details
 
-      console.log('Book details', responseObj)
       const updatedData = {
         id: responseObj.id,
         coverPic: responseObj.cover_pic,
@@ -60,7 +60,6 @@ class BookDetails extends Component {
         rating: responseObj.rating,
       }
 
-      console.log('Updated Book', updatedData)
       this.setState({
         apiStatus: apiStatusConstants.success,
         bookDetails: updatedData,
@@ -76,9 +75,11 @@ class BookDetails extends Component {
     </div>
   )
 
-  renderSuccessView = isDarkMode => {
+  renderSuccessView = (isDarkMode, onUpdateFavoriteBooks, favoriteBooks) => {
     const {bookDetails} = this.state
+    console.log('Updated Book', bookDetails)
     const {
+      id,
       coverPic,
       title,
       authorName,
@@ -87,6 +88,16 @@ class BookDetails extends Component {
       aboutAuthor,
       aboutBook,
     } = bookDetails
+
+    const onClickHeart = () => {
+      console.log('Book details - - -:', bookDetails)
+      onUpdateFavoriteBooks(bookDetails)
+      console.log('Heart button clicked')
+    }
+
+    const isItFavoriteBook = favoriteBooks.some(
+      eachBookDetails => eachBookDetails.id === id,
+    )
 
     return (
       <div
@@ -108,28 +119,57 @@ class BookDetails extends Component {
             >
               {authorName}
             </p>
-            <p
-              className="rating-styles"
-              //   style={{color: isDarkMode ? '#E5B8F4' : '#475569'}} add
-              style={{color: isDarkMode ? '#DDE6ED' : '#1e293b'}}
-            >
-              Avg Rating{' '}
-              <BsFillStarFill
-                style={{
-                  color: '#FBBF24',
-                  marginTop: 4,
-                  marginLeft: 4,
-                  marginRight: 4,
-                }}
-              />
-              {rating}
-              {/* <span
-                className="rating-num"
-                // style={{color: isDarkMode ? '#DDE6ED' : '#1e293b'}} add
+            <div className="rating-and-heartBtn">
+              <p
+                className="rating-styles"
+                style={{color: isDarkMode ? '#E5B8F4' : '#475569'}}
               >
-                {rating}
-              </span> */}
-            </p>
+                Avg Rating{' '}
+                <BsFillStarFill
+                  style={{
+                    color: '#FBBF24',
+                    marginTop: 4,
+                    marginLeft: 4,
+                    marginRight: 4,
+                  }}
+                />
+                <span
+                  className="rating-num"
+                  style={{color: isDarkMode ? '#DDE6ED' : '#1e293b'}}
+                >
+                  {rating}
+                </span>
+              </p>
+
+              {isItFavoriteBook ? (
+                <button
+                  type="button"
+                  className="heart-btn"
+                  onClick={onClickHeart}
+                >
+                  <FaHeart
+                    size={25}
+                    style={{
+                      color: 'red',
+                    }}
+                  />
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="heart-btn"
+                  onClick={onClickHeart}
+                >
+                  <FaRegHeart
+                    size={25}
+                    style={{
+                      color: isDarkMode ? '#DDE6ED' : 'black',
+                    }}
+                  />
+                </button>
+              )}
+            </div>
+
             <p
               className="status"
               style={{color: isDarkMode ? '#DCD7C9' : '#475569'}}
@@ -196,13 +236,17 @@ class BookDetails extends Component {
     </div>
   )
 
-  renderResults = isDarkMode => {
+  renderResults = (isDarkMode, onUpdateFavoriteBooks, favoriteBooks) => {
     const {apiStatus} = this.state
     switch (apiStatus) {
       case 'IN_PROGRESS':
         return this.renderLoadingView()
       case 'SUCCESS':
-        return this.renderSuccessView(isDarkMode)
+        return this.renderSuccessView(
+          isDarkMode,
+          onUpdateFavoriteBooks,
+          favoriteBooks,
+        )
       case 'FAILURE':
         return this.renderFailureView(isDarkMode)
       default:
@@ -214,7 +258,7 @@ class BookDetails extends Component {
     return (
       <ThemeContext.Consumer>
         {value => {
-          const {isDarkMode} = value
+          const {isDarkMode, onUpdateFavoriteBooks, favoriteBooks} = value
 
           return (
             <div
@@ -223,7 +267,11 @@ class BookDetails extends Component {
             >
               <Header />
               <div className="book-details-bottom-part">
-                {this.renderResults(isDarkMode)}
+                {this.renderResults(
+                  isDarkMode,
+                  onUpdateFavoriteBooks,
+                  favoriteBooks,
+                )}
                 <Footer />
               </div>
             </div>

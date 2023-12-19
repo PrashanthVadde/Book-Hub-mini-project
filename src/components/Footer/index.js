@@ -32,7 +32,7 @@ const Footer = () => (
             className="contact-us"
             style={{color: isDarkMode ? '#F4EEE0' : 'black'}}
           >
-            Contact us
+            Contact Us
           </p>
         </div>
       )

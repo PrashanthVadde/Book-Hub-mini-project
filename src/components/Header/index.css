@@ -46,7 +46,7 @@
 }
 
 .buttons-container {
-  display: flex;
+  display: none;
   width: 70%;
   justify-content: space-around;
   align-items: center;

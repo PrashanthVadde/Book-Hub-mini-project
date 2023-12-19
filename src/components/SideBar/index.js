@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 import './index.css'
 import ThemeContext from '../Context/ThemeContext'
 
@@ -7,7 +9,11 @@ const SideBar = props => {
   return (
     <ThemeContext.Consumer>
       {value => {
-        const {isDarkMode} = value
+        const {isDarkMode, onUpdateActiveTab} = value
+
+        const onClickFavoriteBooksText = () => {
+          onUpdateActiveTab('')
+        }
 
         return (
           <div
@@ -51,6 +57,19 @@ const SideBar = props => {
                 )
               })}
             </ul>
+            <Link to="/favorite-books" style={{textDecoration: 'none'}}>
+              <h1
+                style={{
+                  color: 'green',
+                  fontSize: 18,
+                  fontWeight: 500,
+                  cursor: 'pointer',
+                }}
+                onClick={onClickFavoriteBooksText}
+              >
+                Favorite Books
+              </h1>
+            </Link>
           </div>
         )
       }}

@@ -90,7 +90,9 @@ class Bookshelves extends Component {
             className="nothing-match-description"
             style={{color: isDarkMode ? '#DDE6ED' : '#1e293b'}}
           >
-            Your search for {searchInput} did not find any matches.
+            Your search for{' '}
+            <span className="no-match-typed-text">{searchInput}</span> did not
+            find any matches.
           </p>
         </div>
       )
@@ -217,7 +219,7 @@ class Bookshelves extends Component {
 
   render() {
     const {bookshelvesList} = this.props
-    const {activeBookId, searchInput} = this.state
+    const {activeBookId, searchInput, isFavoriteBooksTabActive} = this.state
 
     const labelObj = bookshelvesList.find(
       eachBook => eachBook.id === activeBookId,
@@ -227,6 +229,10 @@ class Bookshelves extends Component {
       <ThemeContext.Consumer>
         {value => {
           const {onUpdateActiveTab, isDarkMode} = value
+
+          const onClickFavoriteBooksText = () => {
+            onUpdateActiveTab('')
+          }
 
           return (
             <div
@@ -239,6 +245,7 @@ class Bookshelves extends Component {
                   bookshelvesList={bookshelvesList}
                   onClickTab={this.onClickTab}
                   activeId={activeBookId}
+                  onClickFavoriteBooksTab={this.onClickFavoriteBooksTab}
                 />
                 <div className="medium-device-styles">
                   <h1
@@ -266,6 +273,19 @@ class Bookshelves extends Component {
                         </li>
                       )
                     })}
+                    <Link to="/favorite-books" style={{textDecoration: 'none'}}>
+                      <h1
+                        className="medium-device-favorite-btn"
+                        style={{
+                          fontSize: 18,
+                          fontWeight: 500,
+                          cursor: 'pointer',
+                        }}
+                        onClick={onClickFavoriteBooksText}
+                      >
+                        Favorite Books
+                      </h1>
+                    </Link>
                   </ul>
                 </div>
 
@@ -276,7 +296,10 @@ class Bookshelves extends Component {
                       style={{color: isDarkMode ? '#DDE6ED' : '#1e293b'}}
                     >
                       {' '}
-                      {labelObj.label} Books
+                      <span className="book-label-styles">
+                        {labelObj.label}
+                      </span>{' '}
+                      Books
                     </h1>
                     <div className="search-container">
                       <input

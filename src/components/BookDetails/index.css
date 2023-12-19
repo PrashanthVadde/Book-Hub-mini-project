@@ -70,6 +70,13 @@
   line-height: 10px; /* 133.333% */
 }
 
+.rating-and-heartBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 245px;
+}
+
 .rating-styles {
   color: var(--light-blue-gray-600, #475569);
   font-family: 'Roboto';
@@ -77,6 +84,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 14px; /* 133.333% */
+  margin: 0;
 }
 
 .rating-num {
@@ -86,6 +94,14 @@
   font-weight: 400;
   line-height: 32px; /* 133.333% */
   margin-left: 12px;
+}
+
+.heart-btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: 32px;
 }
 
 .status {
@@ -275,6 +291,13 @@
     font-style: normal;
     font-weight: 500;
     line-height: 32px; /* 133.333% */
+  }
+
+  .rating-and-heartBtn {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 300px;
   }
 
   .rating-styles {

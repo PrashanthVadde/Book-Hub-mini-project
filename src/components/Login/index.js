@@ -10,6 +10,8 @@ class Login extends Component {
     username: '',
     password: '',
     errMsg: '',
+    usernameRequired: false,
+    passwordRequired: false,
     showingError: false,
   }
 
@@ -17,12 +19,28 @@ class Login extends Component {
     this.setState({username: event.target.value})
   }
 
+  handleBlurUsername = event => {
+    if (event.target.value === '') {
+      this.setState({usernameRequired: true})
+    } else {
+      this.setState({usernameRequired: false})
+    }
+  }
+
   onChangePassword = event => {
     this.setState({password: event.target.value})
   }
 
+  handleBlurPassword = event => {
+    if (event.target.value === '') {
+      this.setState({passwordRequired: true})
+    } else {
+      this.setState({passwordRequired: false})
+    }
+  }
+
   renderUsernameField = isDarkMode => {
-    const {username} = this.state
+    const {username, usernameRequired} = this.state
 
     return (
       <div className="input-container">
@@ -38,21 +56,23 @@ class Login extends Component {
           id="userName"
           value={username}
           onChange={this.onChangeUsername}
+          onBlur={this.handleBlurUsername}
           style={{color: isDarkMode ? '#CBE4DE' : '#5a7184'}}
         />
+        {usernameRequired && <p style={{color: 'red', margin: 0}}>Required*</p>}
       </div>
     )
   }
 
   renderPasswordField = isDarkMode => {
-    const {password} = this.state
+    const {password, passwordRequired} = this.state
 
     return (
       <div className="input-container">
         <label
           className={`username-light ${isDarkMode ? 'username-dark' : ''}`}
           htmlFor="password"
-          style={{color: isDarkMode ? '#CBE4DE' : '#5a7184'}}
+          //   style={{color: isDarkMode ? '#CBE4DE' : '#5a7184'}}
         >
           Password*
         </label>
@@ -62,8 +82,10 @@ class Login extends Component {
           id="password"
           value={password}
           onChange={this.onChangePassword}
+          onBlur={this.handleBlurPassword}
           style={{color: isDarkMode ? '#CBE4DE' : '#5a7184'}}
         />
+        {passwordRequired && <p style={{color: 'red', margin: 0}}>Required*</p>}
       </div>
     )
   }

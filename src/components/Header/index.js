@@ -1,10 +1,10 @@
 import './index.css'
 import Cookies from 'js-cookie'
 import {Link, withRouter} from 'react-router-dom'
-// import Popup from 'reactjs-popup'
-// import {RiMenuFoldLine, RiMoonClearFill} from 'react-icons/ri'
-// import {IoIosCloseCircle} from 'react-icons/io'
-// import {IoSunny} from 'react-icons/io5'
+import Popup from 'reactjs-popup'
+import {RiMenuFoldLine, RiMoonClearFill} from 'react-icons/ri'
+import {IoIosCloseCircle} from 'react-icons/io'
+import {IoSunny} from 'react-icons/io5'
 
 import ThemeContext from '../Context/ThemeContext'
 
@@ -105,25 +105,25 @@ const Header = props => (
               </li>
             </Link>
 
-            {/* {isDarkMode ? (
-                <button
-                  type="button"
-                  style={{...themeBtnStyles}}
-                  onClick={onClickThemeBtn}
-                >
-                  <IoSunny size={30} style={{color: '#DDE6ED'}} />
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  style={{
-                    ...themeBtnStyles,
-                  }}
-                  onClick={onClickThemeBtn}
-                >
-                  <RiMoonClearFill size={30} style={{color: '#03001C'}} />
-                </button>
-              )} */}
+            {isDarkMode ? (
+              <button
+                type="button"
+                style={{...themeBtnStyles}}
+                onClick={onClickThemeBtn}
+              >
+                <IoSunny size={30} style={{color: '#DDE6ED'}} />
+              </button>
+            ) : (
+              <button
+                type="button"
+                style={{
+                  ...themeBtnStyles,
+                }}
+                onClick={onClickThemeBtn}
+              >
+                <RiMoonClearFill size={30} style={{color: '#03001C'}} />
+              </button>
+            )}
             <button
               type="button"
               onClick={onClickLogoutBtn}
@@ -133,112 +133,112 @@ const Header = props => (
             </button>
           </ul>
 
-          {/* <div className="popup-container">
-              {isDarkMode ? (
-                <button
-                  type="button"
-                  style={{
-                    ...themeBtnStyles,
-                  }}
-                  onClick={onClickThemeBtn}
-                >
-                  <IoSunny size={30} style={{color: '#DDE6ED'}} />
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  style={{
-                    ...themeBtnStyles,
-                  }}
-                  onClick={onClickThemeBtn}
-                >
-                  <RiMoonClearFill
+          <div className="popup-container">
+            {isDarkMode ? (
+              <button
+                type="button"
+                style={{
+                  ...themeBtnStyles,
+                }}
+                onClick={onClickThemeBtn}
+              >
+                <IoSunny size={30} style={{color: '#DDE6ED'}} />
+              </button>
+            ) : (
+              <button
+                type="button"
+                style={{
+                  ...themeBtnStyles,
+                }}
+                onClick={onClickThemeBtn}
+              >
+                <RiMoonClearFill
+                  size={30}
+                  style={{color: isDarkMode ? '#DDE6ED' : '#03001C'}}
+                />
+              </button>
+            )}
+            <Popup
+              trigger={
+                <button type="button" className="menu-button">
+                  <RiMenuFoldLine
                     size={30}
-                    style={{color: isDarkMode ? '#DDE6ED' : '#03001C'}}
+                    style={{
+                      color: isDarkMode ? '#DDE6ED' : '#03001C',
+                      marginLeft: 20,
+                    }}
                   />
                 </button>
-              )}
-              <Popup
-                trigger={
-                  <button type="button" className="menu-button">
-                    <RiMenuFoldLine
-                      size={30}
-                      style={{
-                        color: isDarkMode ? '#DDE6ED' : '#03001C',
-                        marginLeft: 20,
-                      }}
+              }
+              position="bottom right"
+            >
+              {close => (
+                <div
+                  className="popup-content-container"
+                  style={{
+                    backgroundColor: isDarkMode ? '#2C3639' : '#e4e7eb',
+                    border: '2px solid #00005C',
+                    borderRadius: '6px',
+                  }}
+                >
+                  <Link to="/" style={{textDecoration: 'none'}}>
+                    <button
+                      type="button"
+                      className="popup-btn"
+                      onClick={onClickHomeTab}
+                    >
+                      <p
+                        style={{
+                          color: isDarkMode
+                            ? homeTabDarkColor
+                            : homeTabLightColor,
+                        }}
+                      >
+                        Home
+                      </p>
+                    </button>
+                  </Link>
+
+                  <Link to="/shelf" style={{textDecoration: 'none'}}>
+                    <button
+                      type="button"
+                      className="popup-btn"
+                      onClick={onClickBookshelvesTab}
+                    >
+                      <p
+                        style={{
+                          color: isDarkMode
+                            ? bookshelvesTabDarkColor
+                            : bookshelvesTabLightColor,
+                        }}
+                      >
+                        Bookshelves
+                      </p>
+                    </button>
+                  </Link>
+
+                  <button
+                    type="button"
+                    onClick={onClickLogoutBtn}
+                    className="logout-btn"
+                  >
+                    Logout
+                  </button>
+
+                  <button
+                    type="button"
+                    className="close-button"
+                    onClick={() => close()}
+                  >
+                    <IoIosCloseCircle
+                      size={25}
+                      style={{color: isDarkMode ? '#DDE6ED' : '#03001C'}}
                     />
                   </button>
-                }
-                position="bottom right"
-              >
-                {close => (
-                  <div
-                    className="popup-content-container"
-                    style={{
-                      backgroundColor: isDarkMode ? '#2C3639' : '#e4e7eb',
-                      border: '2px solid #00005C',
-                      borderRadius: '6px',
-                    }}
-                  >
-                    <Link to="/" style={{textDecoration: 'none'}}>
-                      <button
-                        type="button"
-                        className="popup-btn"
-                        onClick={onClickHomeTab}
-                      >
-                        <p
-                          style={{
-                            color: isDarkMode
-                              ? homeTabDarkColor
-                              : homeTabLightColor,
-                          }}
-                        >
-                          Home
-                        </p>
-                      </button>
-                    </Link>
-
-                    <Link to="/shelf" style={{textDecoration: 'none'}}>
-                      <button
-                        type="button"
-                        className="popup-btn"
-                        onClick={onClickBookshelvesTab}
-                      >
-                        <p
-                          style={{
-                            color: isDarkMode
-                              ? bookshelvesTabDarkColor
-                              : bookshelvesTabLightColor,
-                          }}
-                        >
-                          Bookshelves
-                        </p>
-                      </button>
-                    </Link>
-
-                    <button
-                      type="button"
-                      onClick={onClickLogoutBtn}
-                      className="logout-btn"
-                    >
-                      Logout
-                    </button>
-
-                    <button
-                      type="button"
-                      className="close-button"
-                      onClick={() => close()}
-                    >
-                      <IoIosCloseCircle
-                        size={25}
-                        style={{color: isDarkMode ? '#DDE6ED' : '#03001C'}}
-                      />
-                    </button>
-                  </div>
-                )}
-              </Popup>
-            </div> */}
+                </div>
+              )}
+            </Popup>
+          </div>
         </div>
       )
     }}

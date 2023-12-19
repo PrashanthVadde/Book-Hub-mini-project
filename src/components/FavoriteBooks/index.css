@@ -1,0 +1,211 @@
+.favorite-books-page {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f7fa;
+}
+
+.favorite-books-bottom-part {
+  height: 92vh;
+  width: 100%;
+  /* margin-top: 20px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+}
+
+.favorite-books-title {
+  font-family: 'Roboto';
+  font-size: 22px;
+  font-weight: 600;
+  background: linear-gradient(to right, #65b741, #81e75f, #3399ff);
+  -webkit-background-clip: text; /* For Safari */
+  color: transparent;
+}
+
+.favorite-book-items-container {
+  width: 90%;
+  display: flex;
+  padding-left: 0;
+  list-style-type: none;
+  padding: 12px;
+  border-radius: 16px;
+  box-shadow: 0px 0px 5px 5px #163020;
+  flex-wrap: wrap;
+}
+
+.favorite-book-item {
+  display: flex;
+  justify-content: row;
+  height: 180px;
+  width: 300px;
+  margin: 20px;
+}
+
+.favorite-book-cover-pic {
+  height: 180px;
+  width: 140px;
+  margin-right: 18px;
+}
+
+.favorite-book-title {
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.favorite-book-author-name {
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.favorite-book-rating {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.favorite-book-read-status {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* No favorite page design */
+.no-favorite-books-page {
+  display: flex;
+  height: 92vh;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.no-favorite-books-text {
+  font-size: 34px;
+  font-weight: 800;
+  font-family: 'Roboto';
+
+  background: linear-gradient(to right, #ff6600, #c21292, #3559e0, #3399ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.no-favorite-books-description {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Roboto';
+}
+
+@media screen and (min-width: 768px) {
+  .favorite-books-page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f5f7fa;
+  }
+
+  .favorite-books-bottom-part {
+    height: 92vh;
+    width: 100%;
+    /* margin-top: 20px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+  }
+
+  .favorite-books-title {
+    font-family: 'Roboto';
+    font-size: 32px;
+    font-weight: 600;
+    background: linear-gradient(to right, #65b741, #81e75f, #3399ff);
+    -webkit-background-clip: text; /* For Safari */
+    color: transparent;
+  }
+
+  .favorite-book-items-container {
+    width: 70%;
+    display: flex;
+    padding-left: 0;
+    list-style-type: none;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 5px #163020;
+    flex-wrap: wrap;
+  }
+
+  .favorite-book-item {
+    display: flex;
+    justify-content: row;
+    height: 200px;
+    width: 360px;
+    margin: 20px;
+  }
+
+  .favorite-book-cover-pic {
+    height: 200px;
+    width: 160px;
+    margin-right: 16px;
+  }
+
+  .favorite-book-title {
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .favorite-book-author-name {
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .favorite-book-rating {
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .favorite-book-read-status {
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  /* No favorite page design */
+  .no-favorite-books-page {
+    display: flex;
+    height: 92vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .no-favorite-books-text {
+    font-size: 34px;
+    font-weight: 800;
+    font-family: 'Roboto';
+    /* background-image: linear-gradient(to right, #ef4040, );
+  -webkit-background-clip: text; For Safari */
+    background: linear-gradient(to right, #ff6600, #c21292, #3559e0, #3399ff);
+    -webkit-background-clip: text; /* For Safari */
+    color: transparent;
+  }
+
+  .no-favorite-books-description {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Roboto';
+  }
+}

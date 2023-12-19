@@ -8,7 +8,7 @@
 }
 
 .bottom-part {
-  height: 83vh;
+  height: 80vh;
   width: 100%;
   /* margin-top: 20px; */
   display: flex;
@@ -66,6 +66,15 @@
   background-color: #0284c7;
 }
 
+.medium-device-favorite-btn {
+  padding: 4px 10px;
+  border-radius: 25px;
+  border: 1px solid #0284c7;
+  background: linear-gradient(to right, #ff6600, #c21292, #3559e0, #3399ff);
+  -webkit-background-clip: text; /* For Safari */
+  color: transparent;
+}
+
 .bottom-right-part {
   display: flex;
   flex-direction: column;
@@ -90,6 +99,13 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+
+.book-label-styles {
+  background: linear-gradient(to right, #ff6600, #c21292, #3559e0, #3399ff);
+  -webkit-background-clip: text; /* For Safari */
+  color: transparent;
+  margin-right: 6px;
 }
 
 .search-container {
@@ -287,6 +303,12 @@
   font-weight: 500;
   line-height: normal;
   text-align: center;
+}
+
+.no-match-typed-text {
+  background: linear-gradient(to right, #ff6600, #c21292, #3559e0, #3399ff);
+  -webkit-background-clip: text; /* For Safari */
+  color: transparent;
 }
 
 @media screen and (min-width: 768px) {
